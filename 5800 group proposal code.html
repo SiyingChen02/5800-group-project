@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5800 group proposal code</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="5800 group proposal code_files/libs/clipboard/clipboard.min.js"></script>
+<script src="5800 group proposal code_files/libs/quarto-html/quarto.js"></script>
+<script src="5800 group proposal code_files/libs/quarto-html/popper.min.js"></script>
+<script src="5800 group proposal code_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="5800 group proposal code_files/libs/quarto-html/anchor.min.js"></script>
+<link href="5800 group proposal code_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="5800 group proposal code_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="5800 group proposal code_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="5800 group proposal code_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="5800 group proposal code_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#table-1" id="toc-table-1" class="nav-link active" data-scroll-target="#table-1"><span class="header-section-number">1</span> table 1</a>
+  <ul class="collapse">
+  <li><a href="#option-1" id="toc-option-1" class="nav-link" data-scroll-target="#option-1"><span class="header-section-number">1.1</span> option 1</a></li>
+  <li><a href="#option-2" id="toc-option-2" class="nav-link" data-scroll-target="#option-2"><span class="header-section-number">1.2</span> option 2</a></li>
+  <li><a href="#option-3" id="toc-option-3" class="nav-link" data-scroll-target="#option-3"><span class="header-section-number">1.3</span> option 3</a></li>
+  <li><a href="#option-4" id="toc-option-4" class="nav-link" data-scroll-target="#option-4"><span class="header-section-number">1.4</span> option 4</a></li>
+  </ul></li>
+  <li><a href="#figure-1" id="toc-figure-1" class="nav-link" data-scroll-target="#figure-1"><span class="header-section-number">2</span> figure 1</a>
+  <ul class="collapse">
+  <li><a href="#option-1-1" id="toc-option-1-1" class="nav-link" data-scroll-target="#option-1-1"><span class="header-section-number">2.1</span> option 1</a></li>
+  <li><a href="#option-2-1" id="toc-option-2-1" class="nav-link" data-scroll-target="#option-2-1"><span class="header-section-number">2.2</span> option 2</a></li>
+  <li><a href="#option-3-1" id="toc-option-3-1" class="nav-link" data-scroll-target="#option-3-1"><span class="header-section-number">2.3</span> option 3</a></li>
+  <li><a href="#option-4-1" id="toc-option-4-1" class="nav-link" data-scroll-target="#option-4-1"><span class="header-section-number">2.4</span> option 4</a></li>
+  <li><a href="#option-5" id="toc-option-5" class="nav-link" data-scroll-target="#option-5"><span class="header-section-number">2.5</span> option 5</a></li>
+  </ul></li>
+  <li><a href="#figure-2" id="toc-figure-2" class="nav-link" data-scroll-target="#figure-2"><span class="header-section-number">3</span> figure 2</a>
+  <ul class="collapse">
+  <li><a href="#option-1-2" id="toc-option-1-2" class="nav-link" data-scroll-target="#option-1-2"><span class="header-section-number">3.1</span> option 1</a></li>
+  <li><a href="#option-2-2" id="toc-option-2-2" class="nav-link" data-scroll-target="#option-2-2"><span class="header-section-number">3.2</span> option 2</a></li>
+  <li><a href="#option-3-2" id="toc-option-3-2" class="nav-link" data-scroll-target="#option-3-2"><span class="header-section-number">3.3</span> option 3</a></li>
+  <li><a href="#option-4-2" id="toc-option-4-2" class="nav-link" data-scroll-target="#option-4-2"><span class="header-section-number">3.4</span> option 4</a></li>
+  <li><a href="#option-5-1" id="toc-option-5-1" class="nav-link" data-scroll-target="#option-5-1"><span class="header-section-number">3.5</span> option 5</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">5800 group proposal code</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>traffic <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/chensiying/Desktop/Automated_Traffic_Volume_Counts_2024.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 95203 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): Boro, WktGeom, street, fromSt, toSt, Direction
+dbl (7): RequestID, Yr, M, D, HH, MM, SegmentID
+num (1): Vol
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>taxi    <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/chensiying/Desktop/aggregated_nyc_yellow_taxi_2024.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 921373 Columns: 18
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr   (3): passenger_count, PU_Borough, DO_Borough
+dbl  (13): payment_type, trip_count, trip_distance_sum, duration_sum, fare_a...
+date  (1): date
+time  (1): hour
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>borough-level aggregations and hour-of-day summaries</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>traffic_hourly <span class="ot">&lt;-</span> traffic <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">date     =</span> <span class="fu">make_date</span>(Yr, M, D),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">hour_num =</span> <span class="fu">as.integer</span>(HH)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Boro, date, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_volume =</span> <span class="fu">sum</span>(Vol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">borough =</span> Boro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>taxi trip counts, trip distance, and trip duration</p>
+<p>pickup borough = PU_Borough</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>taxi_hourly <span class="ot">&lt;-</span> taxi <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">date     =</span> <span class="fu">as.Date</span>(date),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">hour_num =</span> <span class="fu">as.integer</span>(<span class="fu">substr</span>(hour, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PU_Borough, date, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">trips              =</span> <span class="fu">sum</span>(trip_count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_duration_min   =</span> <span class="fu">sum</span>(duration_sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(trip_count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_distance_miles =</span> <span class="fu">sum</span>(trip_distance_sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(trip_count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">borough =</span> PU_Borough)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>after merging the two datasets by borough, date, and hour</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>hourly_merged <span class="ot">&lt;-</span> traffic_hourly <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(taxi_hourly,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"borough"</span>, <span class="st">"date"</span>, <span class="st">"hour_num"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="table-1" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> table 1</h1>
+<p>summarizes average hourly mobility indicators … after merging … by borough, date, and hour.</p>
+<section id="option-1" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="option-1"><span class="header-section-number">1.1</span> option 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> hourly_merged <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_traffic_volume     =</span> <span class="fu">mean</span>(total_volume,     <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_trip_duration_min  =</span> <span class="fu">mean</span>(avg_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_trip_distance_mile =</span> <span class="fu">mean</span>(avg_distance_miles, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(borough, hour_num)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  table1,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Table 1. Average hourly mobility indicators by borough (2024)"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Table 1. Average hourly mobility indicators by borough (2024)</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 25%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">borough</th>
+<th style="text-align: right;">hour_num</th>
+<th style="text-align: right;">avg_traffic_volume</th>
+<th style="text-align: right;">avg_trip_duration_min</th>
+<th style="text-align: right;">avg_trip_distance_mile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">201.2</td>
+<td style="text-align: right;">14.8</td>
+<td style="text-align: right;">5.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">132.4</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">4.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">88.3</td>
+<td style="text-align: right;">13.8</td>
+<td style="text-align: right;">5.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">76.0</td>
+<td style="text-align: right;">22.0</td>
+<td style="text-align: right;">7.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">97.6</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">8.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">195.6</td>
+<td style="text-align: right;">34.7</td>
+<td style="text-align: right;">9.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">446.3</td>
+<td style="text-align: right;">36.6</td>
+<td style="text-align: right;">8.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">677.6</td>
+<td style="text-align: right;">35.2</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">687.2</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">696.7</td>
+<td style="text-align: right;">40.6</td>
+<td style="text-align: right;">7.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">722.8</td>
+<td style="text-align: right;">42.9</td>
+<td style="text-align: right;">8.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">774.9</td>
+<td style="text-align: right;">44.4</td>
+<td style="text-align: right;">8.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">841.1</td>
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">8.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">889.7</td>
+<td style="text-align: right;">42.7</td>
+<td style="text-align: right;">8.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">948.1</td>
+<td style="text-align: right;">41.7</td>
+<td style="text-align: right;">7.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">985.1</td>
+<td style="text-align: right;">40.5</td>
+<td style="text-align: right;">7.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1005.1</td>
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">7.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">994.1</td>
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">898.3</td>
+<td style="text-align: right;">34.4</td>
+<td style="text-align: right;">7.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">800.5</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">671.5</td>
+<td style="text-align: right;">25.4</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">519.8</td>
+<td style="text-align: right;">21.7</td>
+<td style="text-align: right;">6.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">401.6</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">315.0</td>
+<td style="text-align: right;">17.8</td>
+<td style="text-align: right;">5.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">475.4</td>
+<td style="text-align: right;">17.0</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">330.2</td>
+<td style="text-align: right;">15.5</td>
+<td style="text-align: right;">4.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">252.1</td>
+<td style="text-align: right;">15.7</td>
+<td style="text-align: right;">4.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">217.9</td>
+<td style="text-align: right;">20.8</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">261.6</td>
+<td style="text-align: right;">25.0</td>
+<td style="text-align: right;">7.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">415.7</td>
+<td style="text-align: right;">30.7</td>
+<td style="text-align: right;">7.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">648.2</td>
+<td style="text-align: right;">34.0</td>
+<td style="text-align: right;">7.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">834.1</td>
+<td style="text-align: right;">35.5</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">897.0</td>
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">6.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">904.0</td>
+<td style="text-align: right;">35.3</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">911.8</td>
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">6.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">946.0</td>
+<td style="text-align: right;">36.1</td>
+<td style="text-align: right;">6.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">970.3</td>
+<td style="text-align: right;">36.5</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1014.7</td>
+<td style="text-align: right;">35.3</td>
+<td style="text-align: right;">5.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1066.3</td>
+<td style="text-align: right;">35.4</td>
+<td style="text-align: right;">5.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">1125.1</td>
+<td style="text-align: right;">35.6</td>
+<td style="text-align: right;">5.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1150.3</td>
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1143.2</td>
+<td style="text-align: right;">31.5</td>
+<td style="text-align: right;">5.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">1069.5</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">4.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">964.8</td>
+<td style="text-align: right;">23.2</td>
+<td style="text-align: right;">4.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">874.0</td>
+<td style="text-align: right;">20.8</td>
+<td style="text-align: right;">4.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">770.1</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">4.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">683.0</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">4.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">604.1</td>
+<td style="text-align: right;">18.4</td>
+<td style="text-align: right;">4.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">896.6</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">2.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">588.7</td>
+<td style="text-align: right;">11.4</td>
+<td style="text-align: right;">2.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">423.9</td>
+<td style="text-align: right;">11.1</td>
+<td style="text-align: right;">2.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">362.0</td>
+<td style="text-align: right;">11.8</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">460.3</td>
+<td style="text-align: right;">13.3</td>
+<td style="text-align: right;">4.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">698.1</td>
+<td style="text-align: right;">12.8</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1176.2</td>
+<td style="text-align: right;">11.6</td>
+<td style="text-align: right;">3.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1621.8</td>
+<td style="text-align: right;">12.1</td>
+<td style="text-align: right;">2.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1642.1</td>
+<td style="text-align: right;">13.1</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1575.2</td>
+<td style="text-align: right;">13.5</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1584.3</td>
+<td style="text-align: right;">14.2</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1609.7</td>
+<td style="text-align: right;">15.1</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1683.2</td>
+<td style="text-align: right;">15.5</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1752.9</td>
+<td style="text-align: right;">15.7</td>
+<td style="text-align: right;">2.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1865.9</td>
+<td style="text-align: right;">16.2</td>
+<td style="text-align: right;">2.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">1936.3</td>
+<td style="text-align: right;">16.3</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1936.9</td>
+<td style="text-align: right;">16.1</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1901.8</td>
+<td style="text-align: right;">15.5</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">1848.8</td>
+<td style="text-align: right;">14.3</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">1713.0</td>
+<td style="text-align: right;">13.4</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">1554.1</td>
+<td style="text-align: right;">13.2</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1426.7</td>
+<td style="text-align: right;">13.2</td>
+<td style="text-align: right;">2.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">1329.8</td>
+<td style="text-align: right;">13.3</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">1173.7</td>
+<td style="text-align: right;">12.8</td>
+<td style="text-align: right;">2.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">567.6</td>
+<td style="text-align: right;">26.4</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">394.7</td>
+<td style="text-align: right;">24.6</td>
+<td style="text-align: right;">12.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">283.4</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">10.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">259.6</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">9.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">377.2</td>
+<td style="text-align: right;">20.8</td>
+<td style="text-align: right;">9.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">720.8</td>
+<td style="text-align: right;">27.7</td>
+<td style="text-align: right;">12.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1076.4</td>
+<td style="text-align: right;">36.8</td>
+<td style="text-align: right;">13.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1455.7</td>
+<td style="text-align: right;">41.0</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1551.1</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">11.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1514.5</td>
+<td style="text-align: right;">35.7</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1448.1</td>
+<td style="text-align: right;">35.2</td>
+<td style="text-align: right;">11.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1485.7</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1517.4</td>
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1603.9</td>
+<td style="text-align: right;">39.4</td>
+<td style="text-align: right;">12.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1688.6</td>
+<td style="text-align: right;">43.4</td>
+<td style="text-align: right;">12.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">1692.1</td>
+<td style="text-align: right;">46.3</td>
+<td style="text-align: right;">12.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1660.1</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">13.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1690.0</td>
+<td style="text-align: right;">43.3</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">1615.5</td>
+<td style="text-align: right;">37.2</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">1455.4</td>
+<td style="text-align: right;">33.0</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">1322.7</td>
+<td style="text-align: right;">29.8</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1154.4</td>
+<td style="text-align: right;">28.1</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">976.8</td>
+<td style="text-align: right;">27.9</td>
+<td style="text-align: right;">12.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">779.7</td>
+<td style="text-align: right;">27.5</td>
+<td style="text-align: right;">12.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">14.8</td>
+<td style="text-align: right;">5.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">23.0</td>
+<td style="text-align: right;">29.4</td>
+<td style="text-align: right;">16.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">16.9</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">136.0</td>
+<td style="text-align: right;">36.1</td>
+<td style="text-align: right;">15.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">134.0</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">9.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">271.0</td>
+<td style="text-align: right;">53.4</td>
+<td style="text-align: right;">30.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">316.0</td>
+<td style="text-align: right;">64.6</td>
+<td style="text-align: right;">24.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>this option matches the text description, but the table is too long</p>
+</section>
+<section id="option-2" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="option-2"><span class="header-section-number">1.2</span> option 2</h2>
+<p>divide the 24 hours into several key time periods:</p>
+<p>Overnight: 0–5</p>
+<p>AM Peak: 7–9</p>
+<p>Midday: 11–14</p>
+<p>PM Peak: 16–19</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add time_period to hourly_merged</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>hourly_period <span class="ot">&lt;-</span> hourly_merged <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">time_period =</span> <span class="fu">case_when</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      hour_num <span class="sc">&gt;=</span> <span class="dv">0</span>  <span class="sc">&amp;</span> hour_num <span class="sc">&lt;=</span> <span class="dv">5</span>  <span class="sc">~</span> <span class="st">"Overnight (0–5)"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      hour_num <span class="sc">&gt;=</span> <span class="dv">7</span>  <span class="sc">&amp;</span> hour_num <span class="sc">&lt;=</span> <span class="dv">9</span>  <span class="sc">~</span> <span class="st">"AM Peak (7–9)"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      hour_num <span class="sc">&gt;=</span> <span class="dv">11</span> <span class="sc">&amp;</span> hour_num <span class="sc">&lt;=</span> <span class="dv">14</span> <span class="sc">~</span> <span class="st">"Midday (11–14)"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      hour_num <span class="sc">&gt;=</span> <span class="dv">16</span> <span class="sc">&amp;</span> hour_num <span class="sc">&lt;=</span> <span class="dv">19</span> <span class="sc">~</span> <span class="st">"PM Peak (16–19)"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                            <span class="sc">~</span> <span class="st">"Other"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only retain the few time periods we care about</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time_period <span class="sc">!=</span> <span class="st">"Other"</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>table1_period <span class="ot">&lt;-</span> hourly_period <span class="sc">%&gt;%</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough, time_period) <span class="sc">%&gt;%</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_traffic_volume     =</span> <span class="fu">mean</span>(total_volume,     <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_trip_duration_min  =</span> <span class="fu">mean</span>(avg_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_trip_distance_mile =</span> <span class="fu">mean</span>(avg_distance_miles, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(borough, time_period)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  table1_period,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Table 1. Key time-period mobility indicators by borough (2024)"</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Table 1. Key time-period mobility indicators by borough (2024)</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">borough</th>
+<th style="text-align: left;">time_period</th>
+<th style="text-align: right;">avg_traffic_volume</th>
+<th style="text-align: right;">avg_trip_duration_min</th>
+<th style="text-align: right;">avg_trip_distance_mile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: left;">AM Peak (7–9)</td>
+<td style="text-align: right;">687.1</td>
+<td style="text-align: right;">38.2</td>
+<td style="text-align: right;">7.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: left;">Midday (11–14)</td>
+<td style="text-align: right;">863.5</td>
+<td style="text-align: right;">42.5</td>
+<td style="text-align: right;">8.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: left;">Overnight (0–5)</td>
+<td style="text-align: right;">136.2</td>
+<td style="text-align: right;">22.3</td>
+<td style="text-align: right;">7.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: left;">PM Peak (16–19)</td>
+<td style="text-align: right;">925.0</td>
+<td style="text-align: right;">36.5</td>
+<td style="text-align: right;">7.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: left;">AM Peak (7–9)</td>
+<td style="text-align: right;">878.3</td>
+<td style="text-align: right;">35.3</td>
+<td style="text-align: right;">6.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: left;">Midday (11–14)</td>
+<td style="text-align: right;">999.3</td>
+<td style="text-align: right;">35.8</td>
+<td style="text-align: right;">6.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: left;">Overnight (0–5)</td>
+<td style="text-align: right;">325.9</td>
+<td style="text-align: right;">20.8</td>
+<td style="text-align: right;">6.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: left;">PM Peak (16–19)</td>
+<td style="text-align: right;">1081.9</td>
+<td style="text-align: right;">29.0</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: left;">AM Peak (7–9)</td>
+<td style="text-align: right;">1613.0</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: left;">Midday (11–14)</td>
+<td style="text-align: right;">1727.9</td>
+<td style="text-align: right;">15.6</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: left;">Overnight (0–5)</td>
+<td style="text-align: right;">571.9</td>
+<td style="text-align: right;">12.1</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: left;">PM Peak (16–19)</td>
+<td style="text-align: right;">1850.1</td>
+<td style="text-align: right;">14.8</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: left;">AM Peak (7–9)</td>
+<td style="text-align: right;">1506.9</td>
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: left;">Midday (11–14)</td>
+<td style="text-align: right;">1573.9</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">12.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: left;">Overnight (0–5)</td>
+<td style="text-align: right;">433.9</td>
+<td style="text-align: right;">23.2</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: left;">PM Peak (16–19)</td>
+<td style="text-align: right;">1605.3</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">12.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: left;">AM Peak (7–9)</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">16.9</td>
+<td style="text-align: right;">3.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: left;">Midday (11–14)</td>
+<td style="text-align: right;">169.2</td>
+<td style="text-align: right;">35.9</td>
+<td style="text-align: right;">17.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: left;">Overnight (0–5)</td>
+<td style="text-align: right;">12.5</td>
+<td style="text-align: right;">22.1</td>
+<td style="text-align: right;">10.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>If select this option, we can add the following sentence to the text description: Table 1 summarizes mobility indicators after merging the two datasets by borough and time-of-day period (overnight, peak, and midday hours), highlighting when delivery-relevant congestion is most severe.</p>
+</section>
+<section id="option-3" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="option-3"><span class="header-section-number">1.3</span> option 3</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>table1_borough <span class="ot">&lt;-</span> hourly_merged <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_hourly_volume      =</span> <span class="fu">mean</span>(total_volume,     <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_hourly_duration_min=</span> <span class="fu">mean</span>(avg_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_hourly_distance_mi =</span> <span class="fu">mean</span>(avg_distance_miles, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_hourly_volume))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  table1_borough,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Table 1. Average hourly mobility indicators by borough (2024)"</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Table 1. Average hourly mobility indicators by borough (2024)</caption>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 22%">
+<col style="width: 30%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">borough</th>
+<th style="text-align: right;">avg_hourly_volume</th>
+<th style="text-align: right;">avg_hourly_duration_min</th>
+<th style="text-align: right;">avg_hourly_distance_mi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Manhattan</td>
+<td style="text-align: right;">1365.5</td>
+<td style="text-align: right;">13.7</td>
+<td style="text-align: right;">2.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Queens</td>
+<td style="text-align: right;">1177.1</td>
+<td style="text-align: right;">33.4</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brooklyn</td>
+<td style="text-align: right;">771.9</td>
+<td style="text-align: right;">28.1</td>
+<td style="text-align: right;">5.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bronx</td>
+<td style="text-align: right;">605.0</td>
+<td style="text-align: right;">32.5</td>
+<td style="text-align: right;">7.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Staten Island</td>
+<td style="text-align: right;">148.5</td>
+<td style="text-align: right;">33.7</td>
+<td style="text-align: right;">15.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The text description can add: Table 1 reports average hourly traffic volume and taxi mobility indicators by borough…</p>
+</section>
+<section id="option-4" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="option-4"><span class="header-section-number">1.4</span> option 4</h2>
+<p>looking only at Manhattan’s “busiest hours”</p>
+<p>If we want to focus the table entirely on Manhattan, we can select only Manhattan plus a few key hours (e.g., 8, 9, 17, 18), resulting in only 4 rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>manhattan_peak <span class="ot">&lt;-</span> hourly_merged <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(borough <span class="sc">==</span> <span class="st">"Manhattan"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>         hour_num <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">17</span>, <span class="dv">18</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_traffic_volume     =</span> <span class="fu">mean</span>(total_volume,     <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_trip_duration_min  =</span> <span class="fu">mean</span>(avg_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_trip_distance_mile =</span> <span class="fu">mean</span>(avg_distance_miles, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(hour_num)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  manhattan_peak,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Table 1. Manhattan peak-hour mobility indicators (2024)"</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">1</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Table 1. Manhattan peak-hour mobility indicators (2024)</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 26%">
+<col style="width: 30%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">hour_num</th>
+<th style="text-align: right;">avg_traffic_volume</th>
+<th style="text-align: right;">avg_trip_duration_min</th>
+<th style="text-align: right;">avg_trip_distance_mile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1642.1</td>
+<td style="text-align: right;">13.1</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1575.2</td>
+<td style="text-align: right;">13.5</td>
+<td style="text-align: right;">2.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1901.8</td>
+<td style="text-align: right;">15.5</td>
+<td style="text-align: right;">2.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">1848.8</td>
+<td style="text-align: right;">14.3</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="figure-1" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> figure 1</h1>
+<p>visualizes the density of traffic volumes … Manhattan displays the highest concentration of mobility pressure…</p>
+<section id="option-1-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="option-1-1"><span class="header-section-number">2.1</span> option 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig1_data <span class="ot">&lt;-</span> traffic_hourly <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_volume =</span> <span class="fu">mean</span>(total_volume, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig1_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> avg_volume,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">colour =</span> borough, <span class="at">group =</span> borough)) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">23</span>, <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Average Hourly Traffic Volume by Borough (2024)"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Traffic sensors aggregated to hourly level"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Average Vehicle Volume"</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-2-1" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="option-2-1"><span class="header-section-number">2.2</span> option 2</h2>
+<p>heatmap</p>
+<p>It’s more like a real traffic density map, best showing the differences between peak hours and borough.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig1_data <span class="ot">&lt;-</span> traffic_hourly <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_volume =</span> <span class="fu">mean</span>(total_volume, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig1_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> borough, <span class="at">fill =</span> avg_volume)) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hourly Traffic Volume Heatmap by Borough (2024)"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Darker colors indicate higher roadway pressure"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Borough"</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Avg Volume"</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-3-1" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="option-3-1"><span class="header-section-number">2.3</span> option 3</h2>
+<p>ridge plot</p>
+<p>Visually very “modern,” it’s perfect for a professor’s “presentation-friendly” presentation. It shows the traffic distribution shape of each borough.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig1_data, <span class="fu">aes</span>(<span class="at">x =</span> avg_volume, <span class="at">y =</span> borough, <span class="at">fill =</span> borough)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Hourly Traffic Volumes by Borough"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Avg Hourly Volume"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Borough"</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ridges</span>() <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 158</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-4-1" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="option-4-1"><span class="header-section-number">2.4</span> option 4</h2>
+<p>bar chart</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>peak_hours <span class="ot">&lt;-</span> fig1_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(hour_num <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">17</span>))   <span class="co"># AM + PM peak</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(peak_hours, <span class="fu">aes</span>(<span class="at">x =</span> borough, <span class="at">y =</span> avg_volume, <span class="at">fill =</span> <span class="fu">factor</span>(hour_num))) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Traffic Volume During Peak Hours"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Borough"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Avg Vehicle Volume"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Hour"</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-5" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="option-5"><span class="header-section-number">2.5</span> option 5</h2>
+<p>faceted area plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig1_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> avg_volume, <span class="at">fill =</span> borough)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>borough) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Traffic Volume by Hour Across Boroughs"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Avg Volume"</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="figure-2" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> figure 2</h1>
+<p>complements this view by illustrating taxi trip durations … Longer trip durations reflect mobility slowdown…</p>
+<section id="option-1-2" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="option-1-2"><span class="header-section-number">3.1</span> option 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig2_data <span class="ot">&lt;-</span> taxi_hourly <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_duration_min =</span> <span class="fu">mean</span>(avg_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig2_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> avg_duration_min,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">colour =</span> borough, <span class="at">group =</span> borough)) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">23</span>, <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Average Hourly Taxi Trip Duration by Borough (2024)"</span>,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Taxi durations as a proxy for network mobility conditions"</span>,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Average Trip Duration (Minutes)"</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-2-2" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="option-2-2"><span class="header-section-number">3.2</span> option 2</h2>
+<p>taxi duration heatmap</p>
+<p>red - high duration - obvious mobility slowdown</p>
+<p>is often used to display congestion effects</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig2_data <span class="ot">&lt;-</span> taxi_hourly <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough, hour_num) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_duration_min =</span> <span class="fu">mean</span>(avg_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig2_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> borough, <span class="at">fill =</span> avg_duration_min)) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"inferno"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hourly Taxi Trip Duration Heatmap"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Longer durations reflect real-world mobility slowdowns"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Borough"</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Avg Duration (min)"</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-3-2" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="option-3-2"><span class="header-section-number">3.3</span> option 3</h2>
+<p>boxplot</p>
+<p>This graph is perfect for showing variance/spread. If Manhattan is significantly slower, it will be immediately apparent.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig2_data, <span class="fu">aes</span>(<span class="at">x =</span> borough, <span class="at">y =</span> avg_duration_min, <span class="at">fill =</span> borough)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Hourly Taxi Durations by Borough"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Avg Trip Duration (min)"</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-4-2" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="option-4-2"><span class="header-section-number">3.4</span> option 4</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig2_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> avg_duration_min, <span class="at">fill =</span> borough)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>borough) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hourly Taxi Duration Across Boroughs"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Avg Duration (Minutes)"</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="option-5-1" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="option-5-1"><span class="header-section-number">3.5</span> option 5</h2>
+<p>scatter + smooth line</p>
+<p>showcase trends, not details</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fig2_data, <span class="fu">aes</span>(<span class="at">x =</span> hour_num, <span class="at">y =</span> avg_duration_min, <span class="at">colour =</span> borough)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Taxi Trip Duration Trendlines by Borough"</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Hour"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Avg Duration"</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="5800-group-proposal-code_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
